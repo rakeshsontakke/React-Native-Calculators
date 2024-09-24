@@ -88,11 +88,13 @@ export default function App() {
       return;
     }
     if(monthlyIncome == 0 && monthlyExpenses==0) {
-      setColMessage(`You will have to spend ${((newColi/curColi)*100).toFixed(2)}% of you current expense in ${cCity.title} when you move to ${nCity.title}`);
+      const res = ((newColi/curColi)*100).toFixed(2);
+      setColMessage(`You will have to spend ${res}% of you current expense in ${cCity.title} when you move to ${nCity.title}`);
       return;
     }
     if(mI>0 && mE==0) {      
-      setColMessage(`You will be able to maintain same lifetyle as ${cCity.title} if you earn ₹${(mI*newColi).toFixed(2)} in ${nCity.title}`);
+      const res = ((newColi/curColi)*mI).toFixed(2);
+      setColMessage(`You will be able to maintain same lifetyle as ${cCity.title} if you earn ₹${res} in ${nCity.title}`);
       return;
     }
     const currentExpRate = mE/mI;
